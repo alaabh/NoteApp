@@ -61,12 +61,16 @@ class _NotesScreenState extends State<NotesScreen> {
 
       return notesAsyncValue.when(
         data: (notes) {
-          return ListView.builder(
-            itemCount: notes.length,
-            itemBuilder: (context, index) {
-              final note = notes[index];
-              return Text(note['title']);
-            },
+          return SizedBox(
+            width: 100,
+            height: 100,
+            child: ListView.builder(
+              itemCount: notes.length,
+              itemBuilder: (context, index) {
+                final note = notes[index];
+                return Text(note['title']);
+              },
+            ),
           );
         },
         loading: () {
